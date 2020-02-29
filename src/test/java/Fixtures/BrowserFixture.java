@@ -15,8 +15,7 @@ public class BrowserFixture {
     public static void startBrowser(){
         Configuration.baseUrl= "http://automationpractice.com/index.php";
         Configuration.remote = "http://localhost:4444/wd/hub";
-        Configuration.browser = "chrome";
-        Configuration.browserSize = "1980x1080";
+        Configuration.browserSize = "1366x780";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);

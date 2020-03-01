@@ -4,7 +4,6 @@ import Watchers.ScreenShooterLog;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -15,6 +14,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import static com.codeborne.selenide.Selenide.*;
 
 @ExtendWith(ScreenShooterLog.class)
+@Execution(ExecutionMode.CONCURRENT)
 public class BrowserFixture {
 
     @BeforeAll

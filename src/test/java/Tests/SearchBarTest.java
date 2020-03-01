@@ -7,10 +7,8 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -25,7 +23,7 @@ public class SearchBarTest extends BrowserFixture {
     }
 
     @Test
-    public void correctSearchProductTest() throws InterruptedException {
+    public void correctSearchProductTest() {
         homePage.setSearchBar("dress");
         ElementsCollection productList = $$("#center_column ul.product_list>li");
         productList.filter(Condition.text("dress")).shouldBe(CollectionCondition.size(productList.size()));

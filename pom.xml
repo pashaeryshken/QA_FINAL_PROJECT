@@ -32,6 +32,7 @@
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>5.7.0</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -83,6 +84,7 @@
                             <value>true</value>
                         </property>
                     </systemProperties>
+
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -94,6 +96,11 @@
                         <groupId>org.junit.jupiter</groupId>
                         <artifactId>junit-jupiter-engine</artifactId>
                         <version>5.5.2</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-logger-api</artifactId>
+                        <version>2.21.0</version>
                     </dependency>
                     <dependency>
                         <groupId>org.aspectj</groupId>
@@ -136,6 +143,21 @@
             </plugin>
         </plugins>
     </reporting>
+
+ <!--   <profiles>
+        <profile>
+            <id>firefox</id>
+            <properties>
+                <capabilities>firefox</capabilities>
+            </properties>
+        </profile>
+        <profile>
+            <id>chrome</id>
+            <properties>
+                <capabilities>chrome</capabilities>
+            </properties>
+        </profile>
+    </profiles>-->
 
 
 </project>

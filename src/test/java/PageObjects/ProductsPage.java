@@ -1,30 +1,30 @@
 package PageObjects;
 
 import com.codeborne.selenide.SelenideElement;
+import JavaScriptMethod.JavaScriptMethod;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-
+import static com.codeborne.selenide.Selenide.*;
 public class ProductsPage {
 
 
-    private SelenideElement searchProductElement(String productName){
-        return $$(".product_list > li").find(text(productName)).hover();
+    private SelenideElement searchAndHoverProductElement(String productName){
+        JavaScriptMethod.hoverProductElement($$(".product_list > li").find(text(productName)));
+        return $$(".product_list > li").find(text(productName));
     }
 
     public void openDescriptionProduct(String productName){
-        searchProductElement(productName).$(byText("More")).click();
+        searchAndHoverProductElement(productName).$(byText("More")).click();
     }
 
     public ProductsPage addProductToCart(String productName){
-        searchProductElement(productName).$(".right-block").$(byText("Add to cart")).click();
+        searchAndHoverProductElement(productName).$(".right-block").$(byText("Add to cart")).click();
         return this;
     }
 
     public void addProductToWishList(String productName){
-        searchProductElement(productName).find(".wishlist").click();
+        searchAndHoverProductElement(productName).find(".wishlist").click();
     }
 
     public void addProductToCartWithParameters(String quantity, String color, String size){

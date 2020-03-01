@@ -5,6 +5,8 @@ import PageObjects.ProductsPage;
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -27,7 +29,7 @@ public class ProductsTest extends BrowserFixture {
 
     @Test
     public void addProductWishList(){
-        productsPage.addProductToWishList("Blouse");
+        productsPage.addProductToWishList("Faded Short");
         $(".fancybox-error").shouldBe(Condition.text("You must be logged in to manage your wishlist."));
     }
 

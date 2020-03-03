@@ -14,25 +14,25 @@ public class LoginLogoutTest extends BrowserFixture {
     LoginPage loginPage;
 
     @BeforeEach
-    public void preConditions(){
+    void preConditions(){
         open("?controller=my-account");
         loginPage = new LoginPage();
     }
 
     @Test
-    public void correctLoginTest(){
+    void correctLoginTest(){
         loginPage.setUserData("qwerty@mail.ru", "qwerty");
         $("h1").shouldHave(Condition.text("MY ACCOUNT"));
     }
 
     @Test
-    public void unCorrectLoginTest(){
+    void unCorrectLoginTest(){
         loginPage.setUserData("qwy@mail.ru", "qw");
         $("div.alert-danger").shouldBe(Condition.visible);
     }
 
     @Test
-    public void signOutTest(){
+    void signOutTest(){
         loginPage.setUserData("qwerty@mail.ru", "qwerty");
         loginPage.logout();
         $("logout").shouldNotBe(Condition.exist);

@@ -18,7 +18,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class BrowserFixture {
 
     @BeforeAll
-    public static void startBrowser() {
+    static void startBrowser() {
         Configuration.baseUrl= "http://automationpractice.com/index.php";
         Configuration.remote = "http://localhost:4444/wd/hub";
         Configuration.browserSize = "1980x1080";
@@ -29,7 +29,7 @@ public class BrowserFixture {
     }
 
     @AfterEach
-    public void postConditions(){
+    void postConditions(){
         clearBrowserCookies();
     }
 

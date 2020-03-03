@@ -17,20 +17,20 @@ public class SearchBarTest extends BrowserFixture {
     HomePage homePage;
 
     @BeforeEach
-    public void preConditions() {
+    void preConditions() {
         open("/");
         homePage = new HomePage();
     }
 
     @Test
-    public void correctSearchProductTest() {
+    void correctSearchProductTest() {
         homePage.setSearchBar("dress");
         ElementsCollection productList = $$("#center_column ul.product_list>li");
         productList.filter(Condition.text("dress")).shouldBe(CollectionCondition.size(productList.size()));
     }
 
     @Test
-    public void unCorrectSearchProductSearch(){
+    void unCorrectSearchProductSearch(){
         homePage.setSearchBar("Panzer");
         $(".alert-warning").shouldBe(Condition.text("No results were found for your search \"panzer\""));
     }

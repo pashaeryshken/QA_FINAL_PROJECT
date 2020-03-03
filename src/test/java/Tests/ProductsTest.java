@@ -14,32 +14,32 @@ public class ProductsTest extends BrowserFixture {
     ProductsPage productsPage;
 
     @BeforeEach
-    public void preConditions(){
+    void preConditions(){
         open("?id_category=3&controller=category");
         productsPage = new ProductsPage();
     }
 
     @Test
-    public void addProductToCart(){
+    void addProductToCart(){
         productsPage.addProductToCart("Blouse");
         productsPage.getSuccessMessageAddToCartTest();
     }
 
     @Test
-    public void addProductWishList(){
+    void addProductWishList(){
         productsPage.addProductToWishList("Faded Short");
         $(".fancybox-error").shouldBe(Condition.text("You must be logged in to manage your wishlist."));
     }
 
     @Test
-    public void addProductToCartWithParameters(){
+    void addProductToCartWithParameters(){
         productsPage.openDescriptionProduct("Blouse");
         productsPage.addProductToCartWithParameters("2", "Black", "M");
         productsPage.getSuccessMessageAddToCartTest();
     }
 
     @Test
-    public void  addProductToCartWithZeroAmount(){
+    void  addProductToCartWithZeroAmount(){
         productsPage.openDescriptionProduct("Blouse");
         productsPage.addProductToCartWithParameters("0");
         $(".fancybox-error").shouldBe(Condition.text("Null quantity."));

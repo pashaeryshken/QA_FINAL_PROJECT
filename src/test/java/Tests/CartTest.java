@@ -15,7 +15,7 @@ public class CartTest extends BrowserFixture {
     CartPage cartPage;
 
     @BeforeEach
-    public void preConditions(){
+    void preConditions(){
         open("/");
         new ProductsPage().addProductToCart("Blouse")
                           .getSuccessMessageAddToCartTest();
@@ -24,17 +24,17 @@ public class CartTest extends BrowserFixture {
     }
 
     @Test
-    public void addProductToCartTest(){
+    void addProductToCartTest(){
         cartPage.searchProductInCart("Blouse").shouldBe(Condition.visible);
     }
 
     @Test
-    public void removeProductFromCartTest(){
+    void removeProductFromCartTest(){
         cartPage.removeProductFromCart("Blouse").shouldNotBe(Condition.exist);
     }
 
     @Test
-    public void orderFormationTest(){
+    void orderFormationTest(){
         cartPage.orderFormation();
         $(".alert-success").shouldBe(Condition.text("Your order on My Store is complete."));
     }

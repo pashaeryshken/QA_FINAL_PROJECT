@@ -23,8 +23,8 @@ public class BrowserFixture {
         Configuration.remote = "http://localhost:4444/wd/hub";
         Configuration.browserSize = "1980x1080";
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", false);
-        capabilities.setCapability("enableVideo", false);
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
     }
 

@@ -27,6 +27,6 @@ public class CartPage {
         $("input#cgv").click();
         $("p.cart_navigation button").click();
         $("#HOOK_PAYMENT a.cheque").click();
-        $("#center_column form").submit();
+        $("#cart_navigation>button").click();
     }
 }

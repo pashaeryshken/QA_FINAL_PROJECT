@@ -22,7 +22,6 @@ public class BrowserFixture {
         Configuration.baseUrl= "http://automationpractice.com/index.php";
         Configuration.remote = "http://localhost:4444/wd/hub";
         Configuration.browserSize = "1980x1080";
-        Configuration.browser = "firefox";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", false);
         capabilities.setCapability("enableVideo", false);
